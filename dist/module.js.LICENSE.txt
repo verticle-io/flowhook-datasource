@@ -1,0 +1,110 @@
+/*! *****************************************************************************
+Copyright (c) Microsoft Corporation.
+
+Permission to use, copy, modify, and/or distribute this software for any
+purpose with or without fee is hereby granted.
+
+THE SOFTWARE IS PROVIDED "AS IS" AND THE AUTHOR DISCLAIMS ALL WARRANTIES WITH
+REGARD TO THIS SOFTWARE INCLUDING ALL IMPLIED WARRANTIES OF MERCHANTABILITY
+AND FITNESS. IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR ANY SPECIAL, DIRECT,
+INDIRECT, OR CONSEQUENTIAL DAMAGES OR ANY DAMAGES WHATSOEVER RESULTING FROM
+LOSS OF USE, DATA OR PROFITS, WHETHER IN AN ACTION OF CONTRACT, NEGLIGENCE OR
+OTHER TORTIOUS ACTION, ARISING OUT OF OR IN CONNECTION WITH THE USE OR
+PERFORMANCE OF THIS SOFTWARE.
+***************************************************************************** */
+
+/*! ../client */
+
+/*! ../versions */
+
+/*! ./byte */
+
+/*! ./client */
+
+/*! ./compat-client */
+
+/*! ./compatibility/compat-client */
+
+/*! ./compatibility/stomp */
+
+/*! ./frame-impl */
+
+/*! ./heartbeat-info */
+
+/*! ./parser */
+
+/*! ./stomp-config */
+
+/*! ./stomp-handler */
+
+/*! ./stomp-headers */
+
+/*! ./stomp-subscription */
+
+/*! ./versions */
+
+/*! ./web-socket-state */
+
+/*! /home/kdeepak/MyWork/Tech/stomp/stompjs/src/index.ts */
+
+/*! no static exports found */
+
+/*!*********************!*\
+  !*** ./src/byte.ts ***!
+  \*********************/
+
+/*!**********************!*\
+  !*** ./src/index.ts ***!
+  \**********************/
+
+/*!***********************!*\
+  !*** ./src/client.ts ***!
+  \***********************/
+
+/*!***********************!*\
+  !*** ./src/parser.ts ***!
+  \***********************/
+
+/*!*************************!*\
+  !*** ./src/versions.ts ***!
+  \*************************/
+
+/*!***************************!*\
+  !*** ./src/frame-impl.ts ***!
+  \***************************/
+
+/*!****************************!*\
+  !*** multi ./src/index.ts ***!
+  \****************************/
+
+/*!*****************************!*\
+  !*** ./src/stomp-config.ts ***!
+  \*****************************/
+
+/*!******************************!*\
+  !*** ./src/stomp-handler.ts ***!
+  \******************************/
+
+/*!******************************!*\
+  !*** ./src/stomp-headers.ts ***!
+  \******************************/
+
+/*!*********************************!*\
+  !*** ./src/web-socket-state.ts ***!
+  \*********************************/
+
+/*!***********************************!*\
+  !*** ./src/stomp-subscription.ts ***!
+  \***********************************/
+
+/*!************************************!*\
+  !*** ./src/compatibility/stomp.ts ***!
+  \************************************/
+
+/*!********************************************!*\
+  !*** ./src/compatibility/compat-client.ts ***!
+  \********************************************/
+
+/*!*********************************************!*\
+  !*** ./src/compatibility/heartbeat-info.ts ***!
+  \*********************************************/
