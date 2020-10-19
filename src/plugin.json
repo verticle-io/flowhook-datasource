@@ -1,7 +1,7 @@
 {
   "type": "datasource",
   "name": "Flowhook Webhooks Datasource",
-  "id": "verticle-flowhook-ds",
+  "id": "verticle-flowhook-datasource",
   
   "logs": true,
   "metrics": false,
@@ -14,7 +14,7 @@
     "description": "Consume webhook payloads, map and route them into your Grafana Logs panel.",
     "author": {
       "name": "Jones, Samuel",
-      "url": ""
+      "url": "https://github.com/sjones427"
     },
     "keywords": ["webhooks", "events"],
     "logos": {
@@ -24,15 +24,17 @@
     "links": [
       {
         "name": "Website",
-        "url": "https://github.com/verticle-io/flowhook-datasource.git"
+        "url": "https://github.com/verticle-io/flowhook-datasource"
       },
       {
         "name": "License",
         "url": "https://github.com/verticle-io/flowhook-datasource/blob/main/LICENSE"
       }
     ],
-    "screenshots": [],
-    "version": "%VERSION%",
+    "screenshots": [
+      "img/flowhook-1.png",  "img/flowhook-2.png"
+    ],
+    "version": "0.1.1",
     "updated": "%TODAY%"
   },
   "routes": [
@@ -44,6 +46,7 @@
   ],
   "dependencies": {
     "grafanaVersion": "7.x.x",
+    "grafanaDependency": "7.x.x",
     "plugins": []
   }
 }
