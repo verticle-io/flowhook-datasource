@@ -32,7 +32,10 @@
       }
     ],
     "screenshots": [
-      "img/flowhook-1.png",  "img/flowhook-2.png"
+      { "name": "Flowhook mapping", "path": "img/flowhook-1.png"},
+      { "name": "Flowhook sampling", "path": "img/flowhook-2.png"}
+      { "name": "Log entries with Webhook payload", "path": "img/flowhook-3.png"}
+
     ],
     "version": "0.1.1",
     "updated": "%TODAY%"
