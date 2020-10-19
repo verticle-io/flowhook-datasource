@@ -13,7 +13,7 @@ import { merge, Observable } from 'rxjs';
 import { FlowhookDataSourceOptions, FlowhookQuery } from './types';
 import { getBackendSrv } from '@grafana/runtime';
 
-import { Client } from '@stomp/stompjs';
+import { Client, StompConfig } from '@stomp/stompjs';
 export const DEFAULT_MAX_LINES = 1000;
 
 export class DataSource extends DataSourceApi<FlowhookQuery, FlowhookDataSourceOptions> {
@@ -90,44 +90,51 @@ export class DataSource extends DataSourceApi<FlowhookQuery, FlowhookDataSourceO
       let stompClient: Client;
       let ds: DataSource = this;
 
-      const stompConfig = {
-        // defaults
-        connectHeaders: {
-          login: `${ds.instanceSettings.jsonData.brokerUsername}`,
-          passcode: `${ds.instanceSettings.jsonData.brokerPassword}`
-        },
-
-        // Broker URL, should start with ws:// or wss:// - adjust for your broker setup
-        //brokerURL: 'wss://flowhook.herokuapp.com/ws',
-        brokerURL: ds.instanceSettings.jsonData.brokerUrl || 'wss://flowhook.herokuapp.com/ws',
-        
-        // Keep it off for production, it can be quit verbose
-        // Skip this key to disable
-        debug: function(str: string) {
-          console.log('STOMP: ' + str);
-        },
-
-        // If disconnected, it will retry after 200ms
-        reconnectDelay: 200,
-
-        // Subscriptions should be done inside onConnect as those need to reinstated when the broker reconnects
-        onConnect: function(frame: any) {
+      let stompConfig = this.getStompConfig(
+        ds.instanceSettings.jsonData,
+        function(frame: any) {
           stompClient.subscribe(`/topic/${ds.instanceSettings.jsonData.flowhook}`, function(message) {
             const payload = JSON.parse(message.body);
             ds.appendData(data, payload);
-
             subscriber.next({
               data: [data],
               key: streamId,
-            });
           });
-        }
-      };
+        });
+      });
 
       // Create an instance
       stompClient = new Client(stompConfig);
       stompClient.activate();
     });
+  }
+
+  getStompConfig(jsonData: any, connectCallback: any): StompConfig {
+
+    const stompConfig = {
+      // defaults
+      connectHeaders: {
+        login: `${jsonData.brokerUsername || 'guest'}`,
+        passcode: `${jsonData.brokerPassword || 'guest'}`
+      },
+
+      // Broker URL, should start with ws:// or wss:// - adjust for your broker setup
+      //brokerURL: 'wss://flowhook.herokuapp.com/ws',
+      brokerURL: `${jsonData.brokerUrl || 'wss://flowhook.herokuapp.com/ws'}`,
+      
+      // Keep it off for production, it can be quit verbose
+      // Skip this key to disable
+      debug: function(str: string) {
+        console.log('STOMP: ' + str);
+      },
+
+      // If disconnected, it will retry after 200ms
+      reconnectDelay: 200,
+      onConnect: connectCallback
+    };
+
+    return stompConfig;
+
   }
 
   appendData(data: CircularDataFrame, t: any) {
@@ -170,11 +177,45 @@ export class DataSource extends DataSourceApi<FlowhookQuery, FlowhookDataSourceO
     return LogLevel.unknown;
   }
 
-  async testDatasource() {
-    // Implement a health check for your data source.
-    return {
-      status: 'success',
-      message: 'Success',
-    };
+  async testDatasource(): Promise<any> {
+
+    let stompClient: Client;
+    let ds: DataSource = this;
+
+    let stompConfig = this.getStompConfig(
+      ds.instanceSettings.jsonData,
+      function(frame: any) {       
+        console.log("test connection ...");
+      }
+    );
+
+
+    return new Promise(function(resolve, reject) {    
+        
+      // Create an instance
+      stompClient = new Client(stompConfig);
+  
+      console.log("stompClient", stompClient);
+      stompClient.activate();
+      stompClient.onConnect  = function(frame) {
+        
+        console.log("test connection ... done");
+        
+        if (stompClient.connected) {
+          resolve({
+            status: 'success',
+            message: 'Successfully connected Flowhook service',
+          });
+        } else {
+          resolve({
+            status: 'error',
+            message: 'Failed to connect to Flowhook service',
+          });
+        }
+        stompClient.deactivate();
+        
+      };   
+    });
+
   }
 }
