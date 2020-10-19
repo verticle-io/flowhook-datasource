@@ -19,5 +19,4 @@ export interface FlowhookDataSourceOptions extends DataSourceJsonData {
 export interface FlowhookSecureJsonData {
   username?: string;
   password?: string;
-  
 }

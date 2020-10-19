@@ -79,7 +79,7 @@ export class ConfigEditor extends PureComponent<Props, State> {
   render() {
     const { options } = this.props;
     const { jsonData, secureJsonFields } = options;
-    
+
     return (
       <div className="gf-form-group">
         <div className="gf-form">
