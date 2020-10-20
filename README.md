@@ -5,6 +5,8 @@
 Flowhook consumes webhook payloads and maps and routes them into your Grafana Logs panel.
 The Flowhook service runs on Heroku, is free and does not require any signup.
 
+![Flowhook DS](src/img/flowhook-3.png)
+
 NOTE: Note this plugin is currently experimental.
 
 ## What is Grafana Data Source Plugin?
