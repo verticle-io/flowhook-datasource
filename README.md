@@ -17,6 +17,8 @@ The plugin connects to the Flowhook service via websockets and forwards all inco
 
 Head over to https://flowhook.herokuapp.com/ and follow the instructions to create a new Flowhook. Copy the ID and configure your plugin datasource to use it.
 
+![Flowhook Configure](src/img/flowhook-2.png)
+
 ## Test the Flowhook
 
 Now trigger a couple of webhooks and watch the contents emerge in the Logs panel or Explorer.
