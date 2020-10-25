@@ -1,8 +1,6 @@
 # Flowhook Datasource for Grafana
 
-[![Join the chat at https://gitter.im/verticle-io/flowhook](https://badges.gitter.im/verticle-io/flowhook.svg)](https://gitter.im/verticle-io/flowhook?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
-
-![Flowhook](https://github.com/verticle-io/flowhook-datasource/workflows/Flowhook/badge.svg?event=push)
+[![Join the chat at https://gitter.im/verticle-io/flowhook](https://badges.gitter.im/verticle-io/flowhook.svg)](https://gitter.im/verticle-io/flowhook?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge) ![Flowhook](https://github.com/verticle-io/flowhook-datasource/workflows/Flowhook/badge.svg?event=push)
 
 Flowhook consumes webhook payloads and maps and routes them into your Grafana Logs panel.
 The Flowhook service runs on Heroku, is free and does not require any signup.
