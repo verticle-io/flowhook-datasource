@@ -18,6 +18,11 @@ jobs:
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
+      - name: Invoke deployment hook
+        uses: distributhor/workflow-webhook@v1
+        env:
+          webhook_url: https://flowhook.herokuapp.com/api/v1/webhook?flowhook=-9cgl1fnissfs
+    
       - name: Webhook Action
         # You may pin to the exact commit or the version.
         # uses: joelwmale/webhook-action@aed4f319dce44a4f73cdf0480b94df9e6dfc6cae
