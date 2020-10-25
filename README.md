@@ -22,4 +22,3 @@ Head over to https://flowhook.herokuapp.com/ and follow the instructions to crea
 ## Test the Flowhook
 
 Now trigger a couple of webhooks and watch the contents emerge in the Logs panel or Explorer.
-
