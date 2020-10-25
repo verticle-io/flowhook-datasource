@@ -23,4 +23,5 @@ jobs:
         env:
           webhook_url: https://flowhook.herokuapp.com/api/v1/webhook?flowhook=-9cgl1fnissfs
           webhook_secret: "topsecret"
+          GITHUB_EVENT_PATH: push
 
