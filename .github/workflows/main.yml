@@ -22,7 +22,7 @@ jobs:
         uses: distributhor/workflow-webhook@v1
         env:
           webhook_url: https://flowhook.herokuapp.com/api/v1/webhook?flowhook=-9cgl1fnissfs
-    
+          webhook_secret: ${{ secrets.WEBHOOK_SECRET }}
       - name: Webhook Action
         # You may pin to the exact commit or the version.
         # uses: joelwmale/webhook-action@aed4f319dce44a4f73cdf0480b94df9e6dfc6cae
