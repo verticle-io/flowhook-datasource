@@ -133,19 +133,16 @@ export class DataSource extends DataSourceApi<FlowhookQuery, FlowhookDataSourceO
     return stompConfig;
   }
 
-  
-
   appendData(data: CircularDataFrame, t: any) {
+    let metaFormatted = '';
 
-    let metaFormatted = "";
-
-    if (t.messagePropertySection?.length > 0){
-      t.messagePropertySection?.forEach( (section: any) => {
-        metaFormatted += section.name + ": ";
-        section.messageProperties?.forEach( (prop: any) => {
+    if (t.messagePropertySection?.length > 0) {
+      t.messagePropertySection?.forEach((section: any) => {
+        metaFormatted += section.name + ': ';
+        section.messageProperties?.forEach((prop: any) => {
           metaFormatted += ` ${prop.name} = ${prop.value}`;
         });
-        metaFormatted += "\n"
+        metaFormatted += '\n';
       });
     }
 
@@ -159,7 +156,7 @@ export class DataSource extends DataSourceApi<FlowhookQuery, FlowhookDataSourceO
       level: this.getLogLevel(t.status),
       message: t.message,
       id: t.uuid,
-      meta: metaFormatted
+      meta: metaFormatted,
       //meta: t.messagePropertySection?.length > 0 ? JSON.stringify(t.messagePropertySection) : [],
     });
 
