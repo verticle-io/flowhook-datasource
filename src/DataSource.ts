@@ -7,11 +7,10 @@ import {
   FieldType,
   LogLevel,
 } from '@grafana/data';
-import { BackendSrvRequest } from '@grafana/runtime';
+import { BackendSrvRequest, getBackendSrv } from '@grafana/runtime';
 
 import { merge, Observable } from 'rxjs';
 import { FlowhookDataSourceOptions, FlowhookQuery } from './types';
-import { getBackendSrv } from '@grafana/runtime';
 
 import { Client, StompConfig } from '@stomp/stompjs';
 export const DEFAULT_MAX_LINES = 1000;
@@ -48,7 +47,7 @@ export class DataSource extends DataSourceApi<FlowhookQuery, FlowhookDataSourceO
       streams.push(this.runLogsStream(target, target, request));
     }
 
-    return merge(...streams);
+    return merge<DataQueryResponse>(...streams);
   }
 
   runLogsStream(
