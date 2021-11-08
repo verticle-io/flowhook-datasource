@@ -1,25 +1,29 @@
 {
-  "name": "verticle-flowhook-datasource",
-  "version": "0.1.0",
-  "description": "",
+  "name": "verticle-flowhook-webhooks-datasource",
+  "version": "0.1.3",
+  "description": "Consume webhook payloads, map and route them into your Grafana Logs panel.",
   "scripts": {
     "build": "grafana-toolkit plugin:build",
     "test": "grafana-toolkit plugin:test",
     "dev": "grafana-toolkit plugin:dev",
-    "watch": "grafana-toolkit plugin:dev --watch"
+    "watch": "grafana-toolkit plugin:dev --watch",
+    "sign": "grafana-toolkit plugin:sign",
+    "start": "yarn watch"
   },
-  "author": "Saade, Jens",
+  "author": "Jones, Samuel",
   "license": "Apache-2.0",
   "devDependencies": {
-    "@grafana/data": "canary",
-    "@grafana/runtime": "next",
+    "@grafana/data": "latest",
     "@grafana/toolkit": "latest",
+    "@grafana/runtime": "latest",
     "@grafana/ui": "latest",
     "@types/lodash": "latest",
-    "@stomp/stompjs": "^5.4.4"
+    "@stomp/stompjs": "^5.4.4",
+    "@testing-library/jest-dom": "5.4.0",
+    "@testing-library/react": "^10.0.2"
   },
   "engines": {
-    "node": ">=12 "
+    "node": ">=14"
   },
   "dependencies": {
     "rxjs": "6.6.2"
